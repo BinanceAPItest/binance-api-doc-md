@@ -960,17 +960,16 @@ symbol | STRING | NO |
 
 * The base endpoint is: **wss://testnet.binancefuture.com**
 * Streams can be access either in a single raw stream or a combined stream
-* Combined streams are accessed at **/stream?streams=<streamName1\>/<streamName2\>/<streamName3\>**
-* Combined stream events are wrapped as follows: **{"stream":"<streamName\>","data":<rawPayload\>}**
+* Combined streams are accessed at **/stream?streams=\<streamName1\>/\<streamName2\>/\<streamName3\>**
+* Combined stream events are wrapped as follows: **{"stream":"\<streamName\>","data":\<rawPayload\>}**
 * All symbols for streams are **lowercase**
 * The websocket server will send a `ping frame` every 3 minutes. If the websocket server does not receive a `pong frame` back from the connection within a 10 minute period, the connection will be disconnected. Unsolicited `pong frames` are allowed.
 
 ## Aggregate Trade Streams
 The Aggregate Trade Streams push trade information that is aggregated for a single taker order every 100 milliseconds.
 
-**Stream Name:** 
-
-``<symbol\>@aggTrade``
+**Stream Name:**     
+``<symbol>@aggTrade``
 
 > **Payload:**
 
@@ -991,9 +990,8 @@ The Aggregate Trade Streams push trade information that is aggregated for a sing
 ## Mark Price Stream
 Mark price for a single symbol pushed every 3 secends. 
 
-**Stream Name:** 
-
-``<symbol\>@markPrice``
+**Stream Name:**     
+``<symbol>@markPrice``
 
 > **Payload:**
 
@@ -1032,9 +1030,8 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 * 1w
 * 1M
 
-**Stream Name:** 
-
-``<symbol\>@kline_<interval\>``
+**Stream Name:**     
+``<symbol>@kline_<interval>``
 
 > **Payload:**
 
@@ -1068,9 +1065,8 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 ## Individual Symbol Mini Ticker Stream
 24hr rolling window mini-ticker statistics for a single symbol pushed every 3 seconds. These are NOT the statistics of the UTC day, but a 24hr rolling window from requestTime to 24hrs before.
 
-**Stream Name:** 
-
-``<symbol\>@miniTicker``
+**Stream Name:**     
+``<symbol>@miniTicker``
 
 > **Payload:**
 
@@ -1092,8 +1088,8 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 ## Individual Symbol Ticker Streams
 24hr rollwing window ticker statistics for a single symbol pushed every 3 seconds. These are NOT the statistics of the UTC day, but a 24hr rolling window from requestTime to 24hrs before.
 
-**Stream Name:** 
-``<symbol\>@ticker``
+**Stream Name:**     
+``<symbol>@ticker``
 
 > **Payload:**
 
@@ -1125,9 +1121,8 @@ m -> minutes; h -> hours; d -> days; w -> weeks; M -> months
 ## Partial Book Depth Streams
 Bids and asks, pushed every 250 milliseconds (if existing)
 
-**Stream Name:** 
-
-``<symbol\>@depth``
+**Stream Name:**     
+``<symbol>@depth``
 
 > **Payload:**
 
@@ -1552,7 +1547,7 @@ Otherwise most recent orders are returned.
 * Doing a `PUT` on a `listenKey` will extend its validity for 30 minutes.
 * Doing a `DELETE` on a `listenKey` will close the stream.
 * The base websocket endpoint is: **wss://testnet.binancefuture.com**
-* User Data Streams are accessed at **/stream?stream=<listenKey\>**
+* User Data Streams are accessed at **/stream?streams=\<listenKey\>**
 * User data stream payloads are **not guaranteed** to be in order during heavy periods; **make sure to order your updates using E**
 
 

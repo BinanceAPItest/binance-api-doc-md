@@ -904,8 +904,8 @@ aggTrade中的价格'p'或ticker/miniTicker中的价格'c'均可以作为最新�
 ## 归集交易
 归集交易与逐笔交易的区别在于，同一价格、同一方向、同一时间（按秒计算）的trade会被聚合为一条.推送间隔100毫秒。
 
-**Stream 名称:**    
-`\<symbol\>@aggTrade`
+**Stream 名称:**       
+``<symbol>@aggTrade``
 
 > **Payload:**
 
@@ -927,9 +927,8 @@ aggTrade中的价格'p'或ticker/miniTicker中的价格'c'均可以作为最新�
 ## 最新市场价
 推送间隔3秒
 
-**Stream Name:** 
-
-``<symbol\>@markPrice``
+**Stream Name:**    
+``<symbol>@markPrice``
 
 > **Payload:**
 
@@ -969,9 +968,8 @@ m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月
 * 1w
 * 1M
 
-**Stream 名称:**
-
-`\<symbol\>@kline_\<interval\>`
+**Stream 名称:**    
+``<symbol>@kline_<interval>``
 
 > **Payload:**
 
@@ -1005,9 +1003,8 @@ m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月
 ## 按Symbol的精简Ticker
 按Symbol刷新的24小时精简ticker信息，推送间隔3秒
 
-**Stream 名称:** 
-
-`\<symbol\>@miniTicker`
+**Stream 名称:**     
+``<symbol>@miniTicker`
 
 > **Payload:**
 
@@ -1028,9 +1025,8 @@ m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月
 ## 按Symbol的完整Ticker
 按Symbol刷新的24小时完整ticker信息，推送间隔3秒
 
-**Stream 名称:** 
-
-`\<symbol\>@ticker`
+**Stream 名称:**     
+``<symbol>@ticker``
 
 
 > **Payload:**
@@ -1062,9 +1058,8 @@ m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月
 ## 增量深度信息stream
 orderbook的变化部分，推送间隔250毫秒（如有刷新）
 
-**Stream 名称:** 
-
-`\<symbol\>@depth`
+**Stream 名称:**     
+``<symbol>@depth``
 
 > **Payload:**
 
@@ -1490,7 +1485,7 @@ timestamp | LONG | YES |
 * 可以通过`PUT`一个`listenKey`延长30分钟有效期
 * `DELETE`一个 `listenKey` 立即关闭当前数据流
 * 本篇所列出的websocket接口baseurl: **wss://testnet.binancefuture.com**
-* 订阅账户数据流的stream名称为**/stream?stream=<listenKey\>**
+* 订阅账户数据流的stream名称为**/stream?streams=\<listenKey\>**
 * 每个链接有效期不超过24小时，请妥善处理断线重连。
 * 账户数据流的消息**不保证**严格时间序; **请使用 E 字段进行排序**
 
@@ -1514,6 +1509,7 @@ POST /api/v1/listenKey (HMAC SHA256)
 1
 
 **参数:**
+
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 recvWindow | LONG | NO |
